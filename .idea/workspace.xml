@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a15fb85-ecf8-455d-9a01-4dcf0cc0bd82" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domaine/user/repository/userRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/domaine/user/repository/userRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/databaseConnection.js" beforeDir="false" afterPath="$PROJECT_DIR$/infra/databaseConnection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migration/migrations/1716897071605_create_user_table.js" beforeDir="false" afterPath="$PROJECT_DIR$/migration/migrations/1716897071605_create_user_table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migration/migrations/1716897522102_create-category-table.js" beforeDir="false" afterPath="$PROJECT_DIR$/migration/migrations/1716897522102_create-category-table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migration/migrations/1716897650668_create-spending-table.js" beforeDir="false" afterPath="$PROJECT_DIR$/migration/migrations/1716897650668_create-spending-table.js" afterDir="false" />
     </list>
     <list id="bb41d0c3-741b-4847-837d-5516c685dbd6" name="Changes by yanismohamed" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +44,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "register",
     "last_opened_file_path": "/Users/ninoherran/Documents/projects/adp-api",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -55,6 +59,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/infra" />
       <recent name="$PROJECT_DIR$/migration" />
       <recent name="$PROJECT_DIR$" />
     </key>

@@ -8,16 +8,9 @@ exports.shorthands = undefined;
  * @param run {() => void | undefined}
  * @returns {Promise<void> | void}
  */
-
 exports.up = (pgm) => {
-	pgm.createTable('spending',{
-		id: {type: 'uuid', primaryKey: true},
-		category_id: { type: 'uuid', notNull: true, references: 'category'},
-		amount: { type: 'float', notNull: true},
-		name: { type: 'varchar(100)', notNull: true},
-		date: { type: 'timestamp', notNull: true},
-		recurrent: {type: 'boolean', notNull: true, default: false},
-	});
+    pgm.alterColumn('users', 'email', { unique: true });
+    pgm.alterColumn('users', 'username', { unique: true });
 };
 
 /**
@@ -26,5 +19,6 @@ exports.up = (pgm) => {
  * @returns {Promise<void> | void}
  */
 exports.down = (pgm) => {
-	pgm.dropTable('spending');
+    pgm.alterColumn('users', 'email', { unique: false });
+    pgm.alterColumn('users', 'username', { unique: false });
 };

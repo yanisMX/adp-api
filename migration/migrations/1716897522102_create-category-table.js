@@ -10,10 +10,10 @@ exports.shorthands = undefined;
  */
 exports.up = (pgm) => {
 	pgm.createTable('category',{
-		id: {type: 'uuid', primaryKey: true, default: pgm.func('gen_random_uuid()')},
+		id: {type: 'uuid', primaryKey: true},
 		name: { type: 'varchar(100)', notNull: true},
 		budget: { type: 'float', notNull: true},
-		user_id: { type: 'uuid', notNull: true, references: 'user'},
+		user_id: { type: 'uuid', notNull: true, references: 'users'},
 	});
 };
 
