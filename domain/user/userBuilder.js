@@ -1,7 +1,8 @@
 import {v4} from "uuid";
 import {User} from "./user.js";
 import {hash} from "../../infra/hash.js";
-import {validator} from "../../infra/validator.js";
+import {check} from "../../infra/check.js";
+import {DomainError} from "../domainError.js";
 
 export class UserBuilder {
 	constructor() {
@@ -12,19 +13,23 @@ export class UserBuilder {
 	}
 
 	withUsername(username) {
-		this.username = validator.isNotUndefined(username, "A username is required to create an account");
+		if (check.isUndefined(username))
+			throw DomainError.ADP_A001("username");
+		this.username = username;
 		return this;
 	}
 
 	withEmail(email) {
-		this.email = validator.isNotUndefined(email, "An email is required to create an account");
+		if (check.isUndefined(email))
+			throw DomainError.ADP_A001("email")
+		this.email = email;
 		return this;
 	}
 
 	withPassword(password) {
-		hash.compute(validator.isNotUndefined(password)).then((hashedPassword) => {
-			this.password = hashedPassword;
-		});
+		if (check.isUndefined(password))
+			throw DomainError.ADP_A001("password");
+		this.password = hash.compute(password);
 		return this;
 	}
 

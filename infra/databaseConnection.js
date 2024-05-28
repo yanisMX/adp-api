@@ -1,30 +1,22 @@
 import pg from "pg";
 import "dotenv/config";
 
-const {PGHOST, PGDATABASE, PGUSER, PGPASSWORD} = process.env;
+const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 
-const pool = new pg.Pool({
-							 user: PGUSER,
-							 host: PGHOST,
-							 database: PGDATABASE,
-							 password: PGPASSWORD,
-							 port: 5432,
-							 ssl: {
-								 rejectUnauthorized: false,
-							 }
-						 });
+const client = new pg.Client({
+  user: PGUSER,
+  host: PGHOST,
+  database: PGDATABASE,
+  password: PGPASSWORD,
+  port: 5432,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 
-export async function getConnection(command) {
-	let result;
-	await pool.connect(async (err, client, done) => {
-		if (err) {
-			throw err;
-		}
-
-		result = await command(client);
-
-		done();
-	});
-	return result;
+export async function executeCommand(command) {
+  await client.connect();
+  const result = await command(client);
+  await client.end();
+  return result;
 }
-

@@ -1,20 +1,14 @@
 import bcrypt from "bcrypt";
 
-async function compute(value) {
-	let hashedValue;
-	bcrypt.hash(value, 10)
-		  .then((hash) => {
-			  hashedValue = hash;
-		  });
-
-	return hashedValue;
+function compute(value) {
+  return bcrypt.hashSync(value, 10);
 }
 
-function compare(value1, value2) {
-	return compute(value1) === compute(value2);
+function compare(clearValue, hashedValue) {
+  return bcrypt.compareSync(clearValue, hashedValue);
 }
 
 export const hash = {
-	compute,
-	compare
-}
+  compute,
+  compare,
+};
