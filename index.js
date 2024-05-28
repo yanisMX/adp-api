@@ -6,7 +6,6 @@ const port = 3001;
 
 app.use(express.json());
 
-
 dbConnect().then((client) => {
   console.log('Connected to PostgreSQL database');
 });
