@@ -1,7 +1,7 @@
 import pg from 'pg';
 import 'dotenv/config';
 
-let { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID } = process.env;
+const {PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID} = process.env;
 
 export async function dbConnect () {
 
