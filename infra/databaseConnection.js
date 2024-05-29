@@ -3,7 +3,7 @@ import "dotenv/config";
 
 const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 
-const client = new pg.Client({
+const pool = new pg.Pool({
   user: PGUSER,
   host: PGHOST,
   database: PGDATABASE,
@@ -15,8 +15,8 @@ const client = new pg.Client({
 });
 
 export async function executeCommand(command) {
-  await client.connect();
+  const client = await pool.connect();
   const result = await command(client);
-  await client.end();
+  client.release();
   return result;
 }
