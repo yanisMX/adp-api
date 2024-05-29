@@ -5,6 +5,7 @@ export async function authenticationProvider(req, res, next) {
 		const {sessionToken} = req.cookies;
 
 		req.user = await userService.getUserData(sessionToken);
+		next();
 	} catch (error) {
 		next(error);
 	}

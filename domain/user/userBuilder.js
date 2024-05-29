@@ -10,6 +10,7 @@ export class UserBuilder {
 		this.username = "";
 		this.email = "";
 		this.password = "";
+		this.revenue = 0;
 	}
 
 	withUsername(username) {
@@ -34,7 +35,7 @@ export class UserBuilder {
 	}
 
 	build() {
-		return new User(this.id, this.username, this.email, this.password);
+		return new User(this.id, this.username, this.email, this.password, this.revenue);
 	}
 }
 
