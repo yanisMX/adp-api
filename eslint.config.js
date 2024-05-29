@@ -4,7 +4,7 @@ module.exports = [
 	js.configs.recommended,
 	{
 		rules: {
-			"no-unused-vars": "error",
+			"no-unused-vars": "warn",
 			"no-undef": "warn",
 			"quotes": ["error", "double"]
 		}

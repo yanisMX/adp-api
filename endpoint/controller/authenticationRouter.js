@@ -18,12 +18,4 @@ router.post("/login", async (req, res) => {
   res.status(204).cookie("sessionToken", token).send();
 });
 
-router.get("/me", async (req, res) => {
-  const { sessionToken } = req.cookies;
-
-    const user = await userService.getUserData(sessionToken);
-
-    res.status(200).json(user);
-});
-
 export default router;

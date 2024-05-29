@@ -5,16 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a15fb85-ecf8-455d-9a01-4dcf0cc0bd82" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/endpoint/authenticationProvider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/endpoint/controller/budgetRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/endpoint/controller/meRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/domainError.js" beforeDir="false" afterPath="$PROJECT_DIR$/domain/domainError.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/user/repository/userRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/repository/userRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/user/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/user/userBuilder.js" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/userBuilder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/user/userRetriever.js" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/userRetriever.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/user/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/userService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/endpoint/authenticationProvider.js" beforeDir="false" afterPath="$PROJECT_DIR$/endpoint/authenticationProvider.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/endpoint/controller/authenticationRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/endpoint/controller/authenticationRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/endpoint/errorHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/endpoint/errorHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/eslint.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infra/authenticationToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/domain/authenticationToken.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/databaseConnection.js" beforeDir="false" afterPath="$PROJECT_DIR$/infra/databaseConnection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migration/migrations/1716897071605_create_user_table.js" beforeDir="false" afterPath="$PROJECT_DIR$/migration/migrations/1716897071605_create_user_table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migration/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/migration/package.json" afterDir="false" />
     </list>
     <list id="bb41d0c3-741b-4847-837d-5516c685dbd6" name="Changes by yanismohamed" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,12 +53,12 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "add-revenue",
     "last_opened_file_path": "/Users/ninoherran/Documents/projects/adp-api",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.eslint": "",
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
@@ -87,13 +92,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17011.90" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -107,6 +105,7 @@
       <workItem from="1716896191698" duration="2958000" />
       <workItem from="1716911794799" duration="1168000" />
       <workItem from="1716925110693" duration="997000" />
+      <workItem from="1716978187751" duration="3105000" />
     </task>
     <servers />
   </component>

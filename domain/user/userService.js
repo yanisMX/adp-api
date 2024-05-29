@@ -22,14 +22,21 @@ async function login(email, password) {
 	return authenticationToken.generate(user);
 }
 
-async function getUserData(sessionToken) {
-	const {user_id: userId} = authenticationToken.verify(sessionToken);
+function getUserData(sessionToken) {
+	const decoded = authenticationToken.verify(sessionToken);
 
-	return await userRetriever.byId(userId);
+	return userRetriever.byId(decoded.user_id);
+}
+
+async function update(connectedUser, updatedUser) {
+	connectedUser.update(updatedUser);
+
+	await userRepository.editUser(connectedUser);
 }
 
 export const userService = {
 	create,
 	login,
-	getUserData
+	getUserData,
+	update
 };

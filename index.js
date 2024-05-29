@@ -6,6 +6,7 @@ import authenticationRouter from "./endpoint/controller/authenticationRouter.js"
 import {errorHandler} from "./endpoint/errorHandler.js";
 import {budgetRouter} from "./endpoint/controller/budgetRouter.js";
 import {authenticationProvider} from "./endpoint/authenticationProvider.js";
+import meRouter from "./endpoint/controller/meRouter.js";
 
 const app = express();
 const port = 3001;
@@ -21,7 +22,8 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use("/auth", authenticationRouter);
-app.use("/budget", authenticationProvider, budgetRouter);
+app.use("/me", meRouter);
+app.use("/budget", budgetRouter);
 
 app.use(errorHandler);
 app.listen(port, () => {

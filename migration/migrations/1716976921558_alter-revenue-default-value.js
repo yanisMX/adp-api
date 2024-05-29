@@ -9,13 +9,8 @@ exports.shorthands = undefined;
  * @returns {Promise<void> | void}
  */
 exports.up = (pgm) => {
-	pgm.createTable("users",{
-		id: {type: "uuid", primaryKey: true},
-		username: { type: "varchar(100)", notNull: true},
-		email: { type: "varchar", notNull: true},
-		password: { type: "text", notNull: true},
-		revenue: { type: "float", notNull: false},
-	});
+	pgm.sql("UPDATE users SET revenue = 0 WHERE revenue IS NULL")
+	pgm.alterColumn("users", "revenue",{notNull: true, default: 0})
 };
 
 /**
@@ -24,5 +19,5 @@ exports.up = (pgm) => {
  * @returns {Promise<void> | void}
  */
 exports.down = (pgm) => {
-	pgm.dropTable("users");
+	pgm.alterColumn("users", "revenue", {notNull: false, default: null})
 };
