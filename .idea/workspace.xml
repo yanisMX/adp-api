@@ -5,20 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a15fb85-ecf8-455d-9a01-4dcf0cc0bd82" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/eslint.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infra/authenticationToken.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/endpoint/authenticationProvider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/endpoint/controller/budgetRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/domainError.js" beforeDir="false" afterPath="$PROJECT_DIR$/domain/domainError.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/user/repository/userRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/repository/userRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/user/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/user/userRetriever.js" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/userRetriever.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/user/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/userService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/endpoint/controller/authenticationRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/endpoint/controller/authenticationRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infra/databaseConnection.js" beforeDir="false" afterPath="$PROJECT_DIR$/infra/databaseConnection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infra/pgCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/infra/pgCommand.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infra/token.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/authenticationToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/domain/authenticationToken.js" afterDir="false" />
     </list>
     <list id="bb41d0c3-741b-4847-837d-5516c685dbd6" name="Changes by yanismohamed" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +48,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "login",
+    "git-widget-placeholder": "develop",
     "last_opened_file_path": "/Users/ninoherran/Documents/projects/adp-api",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -61,7 +57,7 @@
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
-    "npm.start.executor": "Run",
+    "npm.start.executor": "Debug",
     "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
     "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"

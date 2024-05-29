@@ -8,6 +8,13 @@ async function getUserByEmail(email){
 }
 
 
+async function getUserById(userId){
+    const userData = await userRepository.getUserById(userId);
+
+    return new User(userData.id, userData.username, userData.email, userData.password);
+}
+
 export const userRetriever = {
-    byEmail : getUserByEmail
+    byEmail : getUserByEmail,
+    byId: getUserById
 }
