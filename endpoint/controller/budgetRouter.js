@@ -9,6 +9,8 @@ export const budgetRouter = Router();
  * /budget/category:
  *   post:
  *     summary: Create a new category
+ *      security:
+ *       - bearerAuth: []
  *     tags: [Budget]
  *     requestBody:
  *       required: true
@@ -31,6 +33,8 @@ export const budgetRouter = Router();
  *               properties:
  *                 category_id:
  *                   type: string
+ *       401:
+ *          description: Non autorisé
  */
 budgetRouter.post("/category", authenticationProvider, async (req, res) => {
 	const {name, budget} = req.body;
@@ -49,6 +53,8 @@ budgetRouter.post("/category", authenticationProvider, async (req, res) => {
  * /budget:
  *   get:
  *     summary: Get categories for a user
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Budget]
  *     responses:
  *       200:
@@ -81,6 +87,8 @@ budgetRouter.get("/", authenticationProvider, async (req, res) => {
  * /budget/category:
  *   put:
  *     summary: Update a category
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Budget]
  *     requestBody:
  *       required: true

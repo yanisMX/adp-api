@@ -16,6 +16,15 @@ const swaggerOptions = {
 				description: "Serveur de développement",
 			},
 		],
+		components: {
+			securitySchemes: {
+				bearerAuth: {
+					type: "http",
+					scheme: "bearer",
+					bearerFormat: "JWT",
+				},
+			},
+		},
 	},
 	apis: ["./endpoint/controller/*.js"],
 };
