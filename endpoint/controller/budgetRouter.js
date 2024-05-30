@@ -45,7 +45,7 @@ budgetRouter.post("/category", authenticationProvider, async (req, res) => {
 
 	await budgetService.create(category, req.user);
 
-	res.status(200).json({category_id});
+	res.status(201).send();
 
 });
 /**
@@ -76,7 +76,7 @@ budgetRouter.post("/category", authenticationProvider, async (req, res) => {
 budgetRouter.get("/", authenticationProvider, async (req, res) => {
 	const wantedDate = req.query.date;
 
-	const categories = await budgetService.getCategoriesFromUser(req.user, wantedDate);
+	const categories = await budgetService.getCategoriesFromUser(req.user.id, wantedDate);
 
 	return res.status(200).send(categories);
 });
@@ -144,10 +144,10 @@ budgetRouter.delete("/category", authenticationProvider, async (req, res) => {
 });
 
 budgetRouter.post("/category/:categoryId/spending", authenticationProvider, async (req, res) => {
-	const {amount, name, reccurent} = req.body;
+	const {amount, name, recurrent} = req.body;
 	const {categoryId} = req.params;
 
-	await budgetService.createSpending({amount, name, reccurent}, categoryId);
+	await budgetService.createSpending({amount, name, recurrent}, categoryId);
 
 	res.status(200).send();
 });

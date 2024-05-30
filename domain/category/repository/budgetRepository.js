@@ -7,10 +7,28 @@ function create(category) {
 
 }
 
-function getCategoriesFromUser(userId) {
-	const statement = "SELECT c.id, c.name, c.budget, STUFF(SELECT s.id, s.name, s.amount, s.reccurent FROM spending s WHERE s.category_id = c.id) AS spendings FROM category c WHERE user_id = $1";
+async function getCategoriesFromUser(userId) {
+	const statement = `SELECT c.id, c.name, c.budget, s.id as "spendingId", s.name as "spendingName", s.amount as "spendingAmount", s.recurrent as "spendingRecurrent", s.category_id as "spendingCategory" FROM category c LEFT JOIN spending s ON c.id = s.category_id WHERE c.user_id = $1 GROUP BY c.id, s.id`;
+	const result = await pgCommand.executeDataTable(statement, userId);
+	return result.reduce((acc, row) => {
+		const categoryAlreadyParsed = acc.find(category => category.id === row.id);
+		if (!categoryAlreadyParsed) {
+			acc.push({
+						 id: row.id,
+						 name: row.name,
+						 budget: row.budget,
+						 spendings: result.filter(spending => spending.spendingCategory === row.id)
+										  .map(spending => ({
+											  id: spending.spendingId,
+											  name: spending.spendingName,
+											  amount: spending.spendingAmount,
+											  recurrent: spending.spendingRecurrent
+										  }))
+					 });
+		}
 
-	return pgCommand.executeDataTable(statement, userId);
+		return acc;
+	}, []);
 }
 
 async function updateCategory(category) {
@@ -21,11 +39,11 @@ async function updateCategory(category) {
 }
 
 async function saveSpendings(category) {
-	const statement = "INSERT INTO spending(id, name, amount, reccurent, category_id) VALUES ($1, $2, $3, $4, $5)";
+	const statement = "INSERT INTO spending(id, name, amount, recurrent, category_id, date) VALUES ($1, $2, $3, $4, $5, $6)";
 
 	for (let i = 0; i < category.spendings.length; i++) {
 		const spending = (category.spendings)[i];
-		await pgCommand.executeNonQuery(statement, spending.id, spending.name, spending.amount, spending.reccurent, category.id);
+		await pgCommand.executeNonQuery(statement, spending.id, spending.name, spending.amount, spending.recurrent, category.id, spending.date);
 	}
 }
 
@@ -49,7 +67,7 @@ function getCategoryById(id) {
 }
 
 function getSpendingsFromCategory(categoryId) {
-	const statement = "SELECT id, name, amount, reccurent FROM spending WHERE category_id = $1";
+	const statement = "SELECT id, name, amount, recurrent FROM spending WHERE category_id = $1";
 
 	return pgCommand.executeDataTable(statement, categoryId);
 }

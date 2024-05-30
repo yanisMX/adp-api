@@ -14,8 +14,8 @@ async function create(categoryInfo, connectedUser) {
 	return category.id;
 }
 
-function getCategoriesFromUser(userId) {
-	const categories = budgetRepository.getCategoriesFromUser(userId);
+async function getCategoriesFromUser(userId) {
+	const categories = await budgetRepository.getCategoriesFromUser(userId);
 
 	return categories.map(category => {
 		const totalSpending = category.spendings.reduce((acc, spending) => acc + spending.amount, 0);
@@ -36,8 +36,8 @@ function deleteCategory(id) {
 	return budgetRepository.deleteCategory(id);
 }
 
-function createSpending(spending, categoryId) {
-	const category = categoryRetriever.getCategory(categoryId);
+async function createSpending(spending, categoryId) {
+	const category = await categoryRetriever.getCategory(categoryId);
 
 	category.addSpending(spending);
 

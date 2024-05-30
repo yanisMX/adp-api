@@ -10,6 +10,6 @@ export class Category {
 	}
 
 	addSpending(spending) {
-		this.spendings.push({id: v4(), ...spending, date: Date.now()});
+		this.spendings.push({id: v4(), ...spending, date: new Date()});
 	}
 }
