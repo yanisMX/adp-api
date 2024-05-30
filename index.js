@@ -10,6 +10,9 @@ import meRouter from "./endpoint/controller/meRouter.js";
 
 const app = express();
 const port = 3001;
+const swaggerSetup = require('./swagger');
+
+swaggerSetup(app);
 
 const corsOptions = {
 	origin: "*",

@@ -1,6 +1,6 @@
 import {v4} from "uuid";
-import {check} from "../../infra/check"
-import { Category } from "./category";
+import {check} from "../../infra/check.js"
+import { Category } from "./category.js";
 
 export class CategoryCreator {
     constructor(){

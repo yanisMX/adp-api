@@ -1,5 +1,6 @@
-import { CategoryCreator } from "./categoryCreator";
-import { categoryRepository } from "./repository/categoryRepository";
+import { CategoryCreator } from "./categoryCreator.js";
+import { categoryRepository } from "./repository/categoryRepository.js";
+
 
 async function create(categoryInfo, connectedUser) {
     const category = new CategoryCreator()

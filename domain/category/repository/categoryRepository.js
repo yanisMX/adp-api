@@ -21,7 +21,8 @@ function updateCategory(category){
 
 }
 
-const categoryRepository = {
+export const categoryRepository = {
     create,
-    getCategoriesFromUser
+    getCategoriesFromUser,
+    updateCategory
 }
