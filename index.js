@@ -5,12 +5,11 @@ import cors from "cors";
 import authenticationRouter from "./endpoint/controller/authenticationRouter.js";
 import {errorHandler} from "./endpoint/errorHandler.js";
 import {budgetRouter} from "./endpoint/controller/budgetRouter.js";
-import {authenticationProvider} from "./endpoint/authenticationProvider.js";
 import meRouter from "./endpoint/controller/meRouter.js";
+import swaggerSetup from "./infra/swagger.js";
 
 const app = express();
 const port = 3001;
-const swaggerSetup = require('./swagger');
 
 swaggerSetup(app);
 
