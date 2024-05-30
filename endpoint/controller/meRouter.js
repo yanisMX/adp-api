@@ -4,6 +4,27 @@ import {authenticationProvider} from "../authenticationProvider.js";
 
 export const meRouter = Router();
 
+/**
+ * @swagger
+ * /me:
+ *   get:
+ *     summary: Get the authenticated user's details
+ *     responses:
+ *       200:
+ *         description: Returns the authenticated user's details
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 username:
+ *                   type: string
+ *                 email:
+ *                   type: string
+ *                 revenue:
+ *                   type: number
+ */
+
 meRouter.get("/", authenticationProvider, (req, res) => {
 	const connectedUser = req.user;
 
