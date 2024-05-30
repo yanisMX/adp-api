@@ -1,15 +1,12 @@
-import { Router } from "express";
-import { categoryService } from "../../domain/category/categoryService.js";
+import {Router} from "express";
+import {budgetService} from "../../domain/category/budgetService.js";
+import {authenticationProvider} from "../authenticationProvider.js";
 
 export const budgetRouter = Router();
 
-budgetRouter.get("/", async (req, res) => {
-  res.status(200).send("Hello World");
-});
-
 /**
  * @swagger
- * /category:
+ * /budget/category:
  *   post:
  *     summary: Create a new category
  *     tags: [Budget]
@@ -35,21 +32,21 @@ budgetRouter.get("/", async (req, res) => {
  *                 category_id:
  *                   type: string
  */
-budgetRouter.post("/category", async (req, res) => {
-  const { name, budget } = req.body;
-  const category = {
-    name,
-    budget,
-  };
-  // TODO: VERIFIER LES DONNEES
-  await categoryService.create(category, req.user);
+budgetRouter.post("/category", authenticationProvider, async (req, res) => {
+	const {name, budget} = req.body;
+	const category = {
+		name,
+		budget,
+	};
 
-  res.status(200).json({ category_id });
+	await budgetService.create(category, req.user);
+
+	res.status(200).json({category_id});
 
 });
 /**
  * @swagger
- * /category:
+ * /budget:
  *   get:
  *     summary: Get categories for a user
  *     tags: [Budget]
@@ -70,17 +67,18 @@ budgetRouter.post("/category", async (req, res) => {
  *                   budget:
  *                     type: number
  */
-budgetRouter.get("/category", async (req, res) => {
-  
-  const categories = await categoryService.getCategoriesFromUser(req.user);
+budgetRouter.get("/", authenticationProvider, async (req, res) => {
+	const wantedDate = req.query.date;
 
-  return res.status(200).send(categories);
+	const categories = await budgetService.getCategoriesFromUser(req.user, wantedDate);
+
+	return res.status(200).send(categories);
 });
 
 
 /**
  * @swagger
- * /category:
+ * /budget/category:
  *   put:
  *     summary: Update a category
  *     tags: [Budget]
@@ -101,11 +99,47 @@ budgetRouter.get("/category", async (req, res) => {
  *       200:
  *         description: Category updated successfully
  */
-budgetRouter.put("/category", async(req, res) => {
-	
+budgetRouter.put("/category", authenticationProvider, async (req, res) => {
 	const {id, name, budget} = req.body;
 
-	await categoryService.updateCategory({id, name, budget});
+	await budgetService.updateCategory({id, name, budget});
 
 	res.status(200).send();
-})
+});
+
+
+/**
+ * @swagger
+ * /budget/category:
+ *   put:
+ *     summary: Update a category
+ *     tags: [Budget]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               category_id:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Category updated successfully
+ */
+budgetRouter.delete("/category", authenticationProvider, async (req, res) => {
+	const {id} = req.body;
+
+	await budgetService.deleteCategory(id);
+
+	res.status(200).send();
+});
+
+budgetRouter.post("/category/:categoryId/spending", authenticationProvider, async (req, res) => {
+	const {amount, name, reccurent} = req.body;
+	const {categoryId} = req.params;
+
+	await budgetService.createSpending({amount, name, reccurent}, categoryId);
+
+	res.status(200).send();
+});
