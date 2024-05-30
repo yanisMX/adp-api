@@ -9,6 +9,8 @@ export const meRouter = Router();
  * /me:
  *   get:
  *     summary: Get the authenticated user's details
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: Returns the authenticated user's details
@@ -23,6 +25,8 @@ export const meRouter = Router();
  *                   type: string
  *                 revenue:
  *                   type: number
+ *       401:
+ *         description: Non autorisé
  */
 
 meRouter.get("/", authenticationProvider, (req, res) => {

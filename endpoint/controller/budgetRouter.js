@@ -9,9 +9,11 @@ budgetRouter.get("/", async (req, res) => {
 
 /**
  * @swagger
- * /category:
+ * /budget/category:
  *   post:
  *     summary: Create a new category
+ *      security:
+ *       - bearerAuth: []
  *     tags: [Budget]
  *     requestBody:
  *       required: true
@@ -34,6 +36,8 @@ budgetRouter.get("/", async (req, res) => {
  *               properties:
  *                 category_id:
  *                   type: string
+ *       401:
+ *          description: Non autorisé
  */
 budgetRouter.post("/category", async (req, res) => {
   const { name, budget } = req.body;
@@ -49,9 +53,11 @@ budgetRouter.post("/category", async (req, res) => {
 });
 /**
  * @swagger
- * /category:
+ * /budget/category:
  *   get:
  *     summary: Get categories for a user
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Budget]
  *     responses:
  *       200:
@@ -80,9 +86,11 @@ budgetRouter.get("/category", async (req, res) => {
 
 /**
  * @swagger
- * /category:
+ * /budget/category:
  *   put:
  *     summary: Update a category
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Budget]
  *     requestBody:
  *       required: true
