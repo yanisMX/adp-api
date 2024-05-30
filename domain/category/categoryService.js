@@ -1,5 +1,5 @@
-import { Category } from "./category";
 import { CategoryCreator } from "./categoryCreator";
+import { categoryRepository } from "./repository/categoryRepository";
 
 async function create(categoryInfo, connectedUser) {
     const category = new CategoryCreator()
@@ -7,11 +7,21 @@ async function create(categoryInfo, connectedUser) {
         .withBudget(categoryInfo.budget)
         .createFor(connectedUser.id);
 
-    await categoryRepository.create(category)
+    await categoryRepository.create(category);
 
     return category.id;
 }
 
+function getCategoriesFromUser(userId){
+  return categoryRepository.getCategoriesFromUser(userId);
+}
+
+function updateCategory(category){
+  return categoryRepository.updateCategory(category)
+}
+
 export const categoryService = {
   create,
+  getCategoriesFromUser,
+  updateCategory
 };
