@@ -1,7 +1,6 @@
 import swaggerUi from "swagger-ui-express";
 import swaggerJSDoc from "swagger-jsdoc";
 
-// Définir les options de Swagger
 const swaggerOptions = {
 	swaggerDefinition: {
 		openapi: "3.0.0",
