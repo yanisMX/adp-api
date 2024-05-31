@@ -74,7 +74,7 @@ budgetRouter.post("/category", authenticationProvider, async (req, res) => {
  *                     type: number
  */
 budgetRouter.get("/", authenticationProvider, async (req, res) => {
-	const wantedDate = req.query.date;
+	const wantedDate = new Date(req.query.date);
 
 	const categories = await budgetService.getCategoriesFromUser(req.user.id, wantedDate);
 
@@ -121,6 +121,8 @@ budgetRouter.put("/category", authenticationProvider, async (req, res) => {
  * /budget/category:
  *   put:
  *     summary: Update a category
+ *     security:
+ *     - bearerAuth: []
  *     tags: [Budget]
  *     requestBody:
  *       required: true
@@ -142,6 +144,8 @@ budgetRouter.delete("/category", authenticationProvider, async (req, res) => {
 
 	res.status(200).send();
 });
+
+
 
 budgetRouter.post("/category/:categoryId/spending", authenticationProvider, async (req, res) => {
 	const {amount, name, recurrent} = req.body;
