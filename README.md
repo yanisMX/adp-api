@@ -1,5 +1,3 @@
-Voici la version adaptée de votre README avec les sections réorganisées et corrigées :
-
 # Arrête d'être pauvre - API
 
 ## Description
