@@ -74,7 +74,7 @@ router.post("/login", async (req, res) => {
 
   const token = await userService.login(email, password);
 
-  res.status(204).cookie("sessionToken", token).send();
+  res.status(200).cookie("sessionToken", token).send({token});
 });
 
 export default router;
