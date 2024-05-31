@@ -74,7 +74,8 @@ router.post("/login", async (req, res) => {
 
   const token = await userService.login(email, password);
 
-  res.status(200).cookie("sessionToken", token).send({token});
+  const oneDay = 1000 * 60 * 60 * 24;
+  res.status(200).cookie("sessionToken", token, {maxAge: oneDay}).send({token});
 });
 
 export default router;

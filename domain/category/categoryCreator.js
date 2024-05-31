@@ -1,6 +1,7 @@
 import {v4} from "uuid";
 import {check} from "../../infra/check.js"
 import { Category } from "./category.js";
+import { DomainError } from "../domainError.js";
 
 export class CategoryCreator {
     constructor(){

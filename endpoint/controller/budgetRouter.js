@@ -80,9 +80,10 @@ budgetRouter.post("/category", authenticationProvider, async (req, res) => {
  */
 budgetRouter.get("/", authenticationProvider, async (req, res) => {
   const wantedDate = new Date(req.query.date);
-
+	// log current date and time
+	console.log(`Current date and time: ${Date.now()}`);
   const categories = await budgetService.getCategoriesFromUser(req.user.id, wantedDate);
-
+  console.log(`Current date and time: ${Date.now()}`);
   return res.status(200).send(categories);
 });
 
