@@ -53,6 +53,14 @@ budgetRouter.post("/category", authenticationProvider, async (req, res) => {
  *     security:
  *       - bearerAuth: []
  *     tags: [Budget]
+ *     parameters:
+ *       - in: query
+ *         name: date
+ *         required: false
+ *         schema:
+ *           type: string
+ *           format: date-time
+ *         description: Date to filter categories
  *     responses:
  *       200:
  *         description: A list of categories
