@@ -12,7 +12,7 @@ export class CategoryCreator {
 
     withName(name){
         if(check.isUndefined(name))
-            throw DomainError.ADP_A001("name");
+            DomainError.ADP_A001("name");
         this.name = name;
         return this;
     }

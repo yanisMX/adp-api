@@ -29,23 +29,31 @@ export const meRouter = Router();
  *         description: Non autorisé
  */
 
-meRouter.get("/", authenticationProvider, (req, res) => {
-	const connectedUser = req.user;
-
-	res.status(200).json({
-							 username: connectedUser.username,
-							 email: connectedUser.email,
-							 revenue: connectedUser.revenue
-						 });
+meRouter.get("/", authenticationProvider, (req, res, next) => {
+	try {
+		const connectedUser = req.user;
+		res.status(200).json({
+								 username: connectedUser.username,
+								 email: connectedUser.email,
+								 revenue: connectedUser.revenue
+							 });
+		
+	} catch (error) {
+		next(error)
+	}
 });
 
-meRouter.patch("/", authenticationProvider, async (req, res) => {
-	const connectedAccount = req.user;
+meRouter.patch("/", authenticationProvider, async (req, res, next) => {
+	try {
+		const connectedAccount = req.user;
 	const {revenue, username, email, password} = req.body;
 
 	await userService.update(connectedAccount, {revenue, username, email, password});
 
 	res.status(204).send();
+	} catch (error) {
+		next(error)
+	}
 });
 
 export default meRouter;

@@ -5,7 +5,7 @@ export class DomainError extends Error {
 	}
 
 	static ADP_A001(field) {
-		return new DomainError("ADP_A001", "Can't create account", `The ${field} cannot be null or undefined`);
+		throw new DomainError("ADP_A001", "Can't create account", `The ${field} cannot be null or undefined`);
 	}
 
 	static ADP_A002() {

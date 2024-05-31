@@ -182,7 +182,9 @@ budgetRouter.delete("/category", authenticationProvider, async (req, res) => {
  *         description: Spending added successfully
  */
 budgetRouter.post("/category/:categoryId/spending", authenticationProvider, async (req, res) => {
+	console.log("Adding spending", req);
   const { amount, name, recurrent } = req.body;
+  console.log(`amount: ${amount}, name: ${name}, recurrent: ${recurrent}`);
   const { categoryId } = req.params;
 
   await budgetService.createSpending({ amount, name, recurrent }, categoryId);

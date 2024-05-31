@@ -35,12 +35,16 @@ const router = Router();
  *                   type: string
  */
 
-router.post("/register", async (req, res) => {
-  const { username, email, password } = req.body;
+router.post("/register", async (req, res, next) => {
+  try{
+    const { username, email, password } = req.body;
 
   const userId = await userService.create(username, email, password);
 
   res.status(201).json({ userId });
+  }catch(error){
+    next(error)
+  }
 });
 
 /**
@@ -69,13 +73,17 @@ router.post("/register", async (req, res) => {
  *             schema:
  *               type: string
  */
-router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
+router.post("/login", async (req, res, next) => {
+  try{
+    const { email, password } = req.body;
 
   const token = await userService.login(email, password);
 
   const oneDay = 1000 * 60 * 60 * 24;
   res.status(200).cookie("sessionToken", token, {maxAge: oneDay}).send({token});
+  }catch(err){
+    next(err)
+  }
 });
 
 export default router;
