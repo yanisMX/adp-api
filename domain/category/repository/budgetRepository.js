@@ -8,7 +8,7 @@ function create(category) {
 }
 
 async function getCategoriesFromUser(userId, wantedDate) {
-	const statement = `SELECT c.id, c.name, c.budget, s.id as "spendingId", s.name as "spendingName", s.amount as "spendingAmount", s.recurrent as "spendingRecurrent", s.category_id as "spendingCategory" FROM category c LEFT JOIN spending s ON c.id = s.category_id WHERE c.user_id = $1 AND s.date >= $2 GROUP BY c.id, s.id`;
+	const statement = `SELECT c.id, c.name, c.budget, s.id as "spendingId", s.name as "spendingName", s.amount as "spendingAmount", s.recurrent as "spendingRecurrent", s.category_id as "spendingCategory" FROM category c LEFT JOIN spending s ON c.id = s.category_id WHERE c.user_id = $1 AND (s.date >= $2 OR s.recurrent) GROUP BY c.id, s.id`;
 	const result = await pgCommand.executeDataTable(statement, userId, wantedDate);
 	return result.reduce((acc, row) => {
 		const categoryAlreadyParsed = acc.find(category => category.id === row.id);
