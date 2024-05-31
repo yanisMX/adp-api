@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a15fb85-ecf8-455d-9a01-4dcf0cc0bd82" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/category/budgetService.js" beforeDir="false" afterPath="$PROJECT_DIR$/domain/category/budgetService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/category/repository/budgetRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/domain/category/repository/budgetRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/endpoint/controller/budgetRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/endpoint/controller/budgetRouter.js" afterDir="false" />
-    </list>
+    <list default="true" id="5a15fb85-ecf8-455d-9a01-4dcf0cc0bd82" name="Changes" comment="" />
     <list id="bb41d0c3-741b-4847-837d-5516c685dbd6" name="Changes by yanismohamed" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +90,7 @@
       <workItem from="1716911794799" duration="1168000" />
       <workItem from="1716925110693" duration="997000" />
       <workItem from="1716978187751" duration="3105000" />
-      <workItem from="1717141545622" duration="404000" />
+      <workItem from="1717141545622" duration="717000" />
     </task>
     <servers />
   </component>

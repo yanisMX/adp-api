@@ -145,8 +145,31 @@ budgetRouter.delete("/category", authenticationProvider, async (req, res) => {
 	res.status(200).send();
 });
 
-
-
+/**
+ * @swagger
+ * /budget/:categoryId/spending:
+ *   put:
+ *     summary: Add a spending to a category
+ *     security:
+ *     - bearerAuth: []
+ *     tags: [Budget]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               amount:
+ *                 type: number
+ *               name:
+ *               	type: string
+ *               recurrent:
+ *               	type: boolean
+ *     responses:
+ *       200:
+ *         description: Category updated successfully
+ */
 budgetRouter.post("/category/:categoryId/spending", authenticationProvider, async (req, res) => {
 	const {amount, name, recurrent} = req.body;
 	const {categoryId} = req.params;
